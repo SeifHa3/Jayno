@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard &mdash; Mr. Beans Coffee</title>
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/admin.css">
+</head>
+<body>
+<header>
+  <div class="logo">
+    <img src="/images/logo.jpg" alt="Mr. Beans Coffee" class="logo-img">
+    <span>Mr. Beans Coffee</span>
+  </div>
+  <nav>
+    <a href="/">Home</a>
+    <a href="/shop">Shop</a>
+    <a href="/contact">Contact</a>
+    <a href="/admin" class="active">Admin</a>
+  </nav>
+  <div class="cart-icon">&#128722; <span class="cart-count">0</span></div>
+</header>
+
+<main class="admin-page">
+  <section class="admin-hero">
+    <h1>Admin Dashboard</h1>
+    <p>Add, edit, and delete coffee products. Review orders and contact messages.</p>
+  </section>
+
+  <section class="admin-grid">
+    <div class="admin-card">
+      <h2>Add / Edit Coffee</h2>
+      <form id="productForm">
+        <div class="form-group">
+          <label>Name</label>
+          <input id="product-name" required>
+        </div>
+
+        <div class="form-group">
+          <label>Price EGP</label>
+          <input id="product-price" type="number" min="10" step="0.5" required>
+        </div>
+
+        <div class="form-group">
+          <label for="product-brewing">Brewing Technique</label>
+          <select id="product-brewing" required>
+            <option value="">Select brewing technique</option>
+            <option value="Turkish Coffee">Turkish Coffee</option>
+            <option value="Espresso Coffee">Espresso Coffee</option>
+          </select>
+        </div>
+
+        <div class="form-group" id="roast-color-group">
+          <label for="product-roast">Roast Color</label>
+          <select id="product-roast">
+            <option value="">None</option>
+            <option value="Light">Light</option>
+            <option value="Medium">Medium</option>
+            <option value="Dark">Dark</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Product Image Path</label>
+          <input id="product-image" type="text" value="/images/products/default.jpg" placeholder="/images/products/filename.png">
+          <small>Enter the image path, e.g. /images/products/espresso-crema.png</small>
+        </div>
+
+        <div class="form-group">
+          <label>Stock</label>
+          <input id="product-stock" type="number" min="0" value="0">
+        </div>
+
+        <div class="form-group">
+          <label>Description</label>
+          <textarea id="product-description" required></textarea>
+        </div>
+
+        <button id="product-submit" type="submit" class="place-order-btn">Add Coffee</button>
+        <button id="cancel-edit" type="button" class="secondary-btn">Cancel Edit</button>
+        <p id="admin-message"></p>
+      </form>
+    </div>
+
+    <div class="admin-card">
+      <h2>Products</h2>
+      <div id="admin-products-list"></div>
+    </div>
+  </section>
+
+  <section class="admin-grid two-columns">
+    <div class="admin-card">
+      <h2>Orders</h2>
+      <div id="orders-list"></div>
+    </div>
+    <div class="admin-card">
+      <h2>Contact Messages</h2>
+      <div id="messages-list"></div>
+    </div>
+  </section>
+</main>
+
+<script src="/js/auth.js"></script>
+<script src="/js/cart.js"></script>
+<script src="/js/admin.js"></script>
+</body>
+</html>

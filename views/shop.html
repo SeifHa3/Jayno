@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shop &mdash; Mr. Beans Coffee</title>
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/shop.css">
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <img src="/images/logo.jpg" alt="Mr. Bean Coffee" class="logo-img">
+    <span>Mr. Beans Coffee</span>
+  </div>
+  <nav>
+    <a href="/">Home</a>
+    <a href="/shop" class="active">Shop</a>
+    <a href="/contact">Contact</a>
+  </nav>
+  <div class="cart-icon">&#128722; <span class="cart-count">0</span></div>
+</header>
+
+<div class="page-header">
+  <h1>Our Coffee Selection</h1>
+  <p>Small-batch roasts for every palate &mdash; from bright and fruity to bold and earthy.</p>
+</div>
+
+<div class="shop-layout">
+  <!-- Filter Sidebar -->
+  <aside class="shop-sidebar">
+    <div class="filter-section">
+      <label class="filter-label">Brewing Technique</label>
+      <div class="filter-divider"></div>
+      <select id="filter-brewing" class="filter-select">
+        <option value="">All Techniques</option>
+        <option value="Turkish Coffee">Turkish Coffee</option>
+        <option value="Espresso Coffee">Espresso Coffee</option>
+      </select>
+    </div>
+
+    <div class="filter-section">
+      <label class="filter-label">Roast Color</label>
+      <div class="filter-divider"></div>
+      <select id="filter-roast" class="filter-select">
+        <option value="">All Roasts</option>
+        <option value="Light">Light</option>
+        <option value="Medium">Medium</option>
+        <option value="Dark">Dark</option>
+      </select>
+    </div>
+  </aside>
+
+  <!-- Products Area -->
+  <div class="shop-main">
+    <!-- Active filter chips -->
+    <div class="filter-chips" id="filter-chips" style="display:none;">
+      <button class="chip-reset" id="reset-all-btn">Reset all</button>
+    </div>
+
+    <div class="products" id="products"></div>
+
+    <!-- No products message -->
+    <div id="no-products" class="no-products-wrap" style="display:none;">
+      <div class="no-products-icon">&#9749;</div>
+      <h2>NO PRODUCTS WERE FOUND</h2>
+      <p>Check your spelling or search again with less specific terms.</p>
+      <button class="btn-return-shop" id="return-shop-btn">RETURN TO SHOP</button>
+    </div>
+  </div>
+</div>
+
+<div class="checkout-bar">
+  <a href="/checkout" id="checkout-btn">Proceed to Checkout &rarr;</a>
+</div>
+
+<footer>
+  <div class="footer-content">
+    <div class="footer-brand">
+      <h3>Mr. Beans Coffee</h3>
+      <p>Single origin &middot; Ethically sourced &middot; Fresh roasted</p>
+    </div>
+    <div class="footer-links">
+      <a href="/">Home</a>
+      <a href="/shop">Shop</a>
+      <a href="/contact">Contact</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2026 <strong>Mr. Beans Coffee</strong> &mdash; All rights reserved.</p>
+  </div>
+</footer>
+<script src="/js/auth.js"></script>
+<script src="/js/cart.js"></script>
+<script src="/js/shop.js"></script>
+</body>
+</html>

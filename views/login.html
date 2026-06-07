@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login &mdash; Mr. Beans Coffee</title>
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+<header>
+  <div class="logo">
+    <img src="/images/logo.jpg" alt="Mr. Beans Coffee" class="logo-img">
+    <span>Mr. Beans Coffee</span>
+  </div>
+  <nav>
+    <a href="/">Home</a>
+    <a href="/shop">Shop</a>
+    <a href="/contact">Contact</a>
+    <a href="/login" class="active">Login</a>
+  </nav>
+  <div class="cart-icon">&#128722; <span class="cart-count">0</span></div>
+</header>
+
+<main class="auth-page">
+  <section class="auth-card">
+    <h1>Login</h1>
+    <p>Use your account to place orders. Admins can manage products.</p>
+    <form id="loginForm">
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" required placeholder="user@mrbeans.com">
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" required placeholder="Your password">
+      </div>
+      <button type="submit" class="place-order-btn">Login</button>
+    </form>
+    <p id="auth-message"></p>
+    <p class="switch-auth">No account? <a href="/signup">Create one</a></p>
+  </section>
+</main>
+
+<script src="/js/auth.js"></script>
+<script src="/js/cart.js"></script>
+<script src="/js/login.js"></script>
+</body>
+</html>

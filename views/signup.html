@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up &mdash; Mr. Beans Coffee</title>
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+<header>
+  <div class="logo">
+    <img src="/images/logo.jpg" alt="Mr. Beans Coffee" class="logo-img">
+    <span>Mr. Beans Coffee</span>
+  </div>
+  <nav>
+    <a href="/">Home</a>
+    <a href="/shop">Shop</a>
+    <a href="/contact">Contact</a>
+    <a href="/login">Login</a>
+  </nav>
+  <div class="cart-icon">&#128722; <span class="cart-count">0</span></div>
+</header>
+
+<main class="auth-page">
+  <section class="auth-card">
+    <h1>Create Account</h1>
+    <p>New accounts are created as normal user accounts.</p>
+    <form id="signupForm">
+      <div class="form-group">
+        <label for="name">Full Name</label>
+        <input type="text" id="name" required placeholder="Amr Hassan">
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" required placeholder="you@example.com">
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" required minlength="8" placeholder="Uppercase, lowercase, number, special character"/>
+      </div>
+      <button type="submit" class="place-order-btn">Sign Up</button>
+    </form>
+    <p id="auth-message"></p>
+    <p class="switch-auth">Already have an account? <a href="/login">Login</a></p>
+  </section>
+</main>
+
+<script src="/js/auth.js"></script>
+<script src="/js/cart.js"></script>
+<script src="/js/login.js"></script>
+</body>
+</html>
