@@ -62,9 +62,11 @@
         </div>
 
         <div class="form-group">
-          <label>Product Image Path</label>
-          <input id="product-image" type="text" value="/images/products/default.jpg" placeholder="/images/products/filename.png">
-          <small>Enter the image path, e.g. /images/products/espresso-crema.png</small>
+          <label>Upload Product Image</label>
+          <input id="product-image-file" type="file" accept="image/*">
+          <small>Choose an image from your computer (max 5MB). Leave empty to keep current image.</small>
+          <img id="image-preview" src="/images/products/default.jpg" alt="Preview" style="width:120px;height:90px;object-fit:cover;margin-top:10px;border-radius:4px;display:block;">
+          <input id="product-image" type="hidden" value="/images/products/default.jpg">
         </div>
 
         <div class="form-group">

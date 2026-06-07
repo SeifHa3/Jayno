@@ -41,6 +41,9 @@ exports.signup = async (req, res) => {
       role: 'user'
     });
 
+    req.session.userId = user._id.toString();
+    req.session.role = user.role;
+
     res.status(201).json({
       token: createToken(user),
       user: publicUser(user)
@@ -70,6 +73,9 @@ exports.login = async (req, res) => {
       return res.status(401).json({ message: 'Wrong email or password.' });
     }
 
+    req.session.userId = user._id.toString();
+    req.session.role = user.role;
+
     res.json({
       token: createToken(user),
       user: publicUser(user)
@@ -81,4 +87,10 @@ exports.login = async (req, res) => {
 
 exports.getMe = (req, res) => {
   res.json({ user: req.user });
+};
+
+exports.logout = (req, res) => {
+  req.session.destroy(() => {
+    res.json({ message: 'Logged out successfully.' });
+  });
 };

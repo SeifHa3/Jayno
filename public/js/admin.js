@@ -57,6 +57,8 @@ function fillProductForm(product) {
   document.getElementById('product-brewing').value = product.brewingTechnique || '';
   document.getElementById('product-roast').value = product.roastColor || '';
   document.getElementById('product-image').value = product.image || '/images/products/default.jpg';
+  document.getElementById('image-preview').src = product.image || '/images/products/default.jpg';
+  document.getElementById('product-image-file').value = '';
   document.getElementById('product-stock').value = product.stock || 0;
   document.getElementById('product-description').value = product.description || '';
   document.getElementById('product-submit').textContent = 'Update Coffee';
@@ -70,6 +72,7 @@ function resetProductForm() {
 
   document.getElementById('productForm').reset();
   document.getElementById('product-image').value = '/images/products/default.jpg';
+  document.getElementById('image-preview').src = '/images/products/default.jpg';
   document.getElementById('product-submit').textContent = 'Add Coffee';
   document.getElementById('admin-message').textContent = '';
   toggleRoastColor();
@@ -158,6 +161,36 @@ document.addEventListener('DOMContentLoaded', function () {
 
   document.getElementById('product-brewing').addEventListener('change', toggleRoastColor);
   toggleRoastColor();
+
+  const imageFileInput = document.getElementById('product-image-file');
+  if (imageFileInput) {
+    imageFileInput.addEventListener('change', async function () {
+      const file = this.files[0];
+      if (!file) return;
+
+      const message = document.getElementById('admin-message');
+      const formData = new FormData();
+      formData.append('image', file);
+
+      try {
+        const response = await fetch('/api/products/upload-image', {
+          method: 'POST',
+          headers: { ...authHeaders() },
+          body: formData
+        });
+        const data = await response.json();
+        if (!response.ok) throw new Error(data.message || 'Upload failed.');
+
+        document.getElementById('product-image').value = data.imagePath;
+        document.getElementById('image-preview').src = data.imagePath;
+        message.className = 'success-message';
+        message.textContent = 'Image uploaded.';
+      } catch (error) {
+        message.className = 'error-message';
+        message.textContent = error.message;
+      }
+    });
+  }
 
   document.getElementById('cancel-edit').onclick = resetProductForm;
 
