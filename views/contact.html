@@ -14,17 +14,17 @@
     <span>Mr. Beans Coffee</span>
   </div>
   <nav>
-    <a href="/">Home</a>
-    <a href="/shop">Shop</a>
-    <a href="/contact" class="active">Contact</a>
+    <a href="/" data-i18n="home">Home</a>
+    <a href="/shop" data-i18n="shop">Shop</a>
+    <a href="/contact" class="active" data-i18n="contact">Contact</a>
   </nav>
   <div class="cart-icon" id="cart-icon">&#128722; <span class="cart-count">0</span></div>
 </header>
 
 <div class="contact-layout">
   <div class="contact-info">
-    <h2>Let's talk coffee.</h2>
-    <p>Have a question about an order, a wholesale inquiry, or just want to chat about beans? We'd love to hear from you.</p>
+    <h2 data-i18n="contactTitle">Get in Touch</h2>
+    <p data-i18n="contactSubtitle">Have a question, feedback, or wholesale inquiry? We'd love to hear from you.</p>
 
     <div class="contact-detail">
       <div class="contact-detail-icon">&#128205;</div>
@@ -55,18 +55,18 @@
     <h2>Send a Message</h2>
     <form id="contactForm">
       <div class="form-group">
-        <label for="name">Your Name</label>
+        <label for="name" data-i18n="nameLabel">Your Name</label>
         <input type="text" id="name" placeholder="e.g. Layla Hassan" autocomplete="name">
       </div>
       <div class="form-group">
-        <label for="email">Email Address</label>
+        <label for="email" data-i18n="emailLabel">Email Address</label>
         <input type="email" id="email" placeholder="you@example.com" autocomplete="email">
       </div>
       <div class="form-group">
-        <label for="message">Message</label>
+        <label for="message" data-i18n="messageLabel">Message</label>
         <textarea id="message" placeholder="Tell us what's on your mind..."></textarea>
       </div>
-      <button type="submit">Send Message</button>
+      <button type="submit" data-i18n="sendBtn">Send Message</button>
       <span id="error"></span>
     </form>
   </div>
@@ -76,16 +76,16 @@
   <div class="footer-content">
     <div class="footer-brand">
       <h3>Mr. Beans Coffee</h3>
-      <p>Single origin &middot; Ethically sourced &middot; Fresh roasted</p>
+      <p data-i18n="footerTagline">Single origin &middot; Ethically sourced &middot; Fresh roasted</p>
     </div>
     <div class="footer-links">
-      <a href="/">Home</a>
-      <a href="/shop">Shop</a>
-      <a href="/contact">Contact</a>
+      <a href="/" data-i18n="home">Home</a>
+      <a href="/shop" data-i18n="shop">Shop</a>
+      <a href="/contact" data-i18n="contact">Contact</a>
     </div>
   </div>
   <div class="footer-bottom">
-    <p>&copy; 2026 <strong>Mr. Beans Coffee</strong> &mdash; All rights reserved.</p>
+    <p data-i18n="footerCopy">&copy; 2026 <strong>Mr. Beans Coffee</strong> &mdash; All rights reserved.</p>
   </div>
 </footer>
 <script src="/js/i18n.js"></script>
