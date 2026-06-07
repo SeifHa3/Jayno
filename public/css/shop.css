@@ -199,3 +199,39 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* Pagination */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-top: 40px;
+  padding: 20px 0;
+}
+
+.pag-btn {
+  padding: 8px 14px;
+  background: var(--white);
+  border: 1px solid rgba(139, 94, 60, 0.25);
+  color: var(--brown-dark);
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.pag-btn:hover:not(:disabled):not(.active) {
+  background: var(--ivory);
+  border-color: var(--brown-warm);
+}
+
+.pag-btn.active {
+  background: var(--brown-dark);
+  color: white;
+  border-color: var(--brown-dark);
+}
+
+.pag-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}

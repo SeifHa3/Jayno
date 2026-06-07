@@ -23,31 +23,31 @@
 </header>
 
 <div class="page-header">
-  <h1>Our Coffee Selection</h1>
-  <p>Small-batch roasts for every palate &mdash; from bright and fruity to bold and earthy.</p>
+  <h1 data-i18n="shopTitle">Our Coffee Selection</h1>
+  <p data-i18n="shopSubtitle">Small-batch roasts for every palate &mdash; from bright and fruity to bold and earthy.</p>
 </div>
 
 <div class="shop-layout">
   <!-- Filter Sidebar -->
   <aside class="shop-sidebar">
     <div class="filter-section">
-      <label class="filter-label">Brewing Technique</label>
+      <label class="filter-label" data-i18n="brewingTechnique">Brewing Technique</label>
       <div class="filter-divider"></div>
       <select id="filter-brewing" class="filter-select">
-        <option value="">All Techniques</option>
-        <option value="Turkish Coffee">Turkish Coffee</option>
-        <option value="Espresso Coffee">Espresso Coffee</option>
+        <option value="" data-i18n="allTechniques">All Techniques</option>
+        <option value="Turkish Coffee" data-i18n="turkishCoffee">Turkish Coffee</option>
+        <option value="Espresso Coffee" data-i18n="espressoCoffee">Espresso Coffee</option>
       </select>
     </div>
 
     <div class="filter-section">
-      <label class="filter-label">Roast Color</label>
+      <label class="filter-label" data-i18n="roastColor">Roast Color</label>
       <div class="filter-divider"></div>
       <select id="filter-roast" class="filter-select">
-        <option value="">All Roasts</option>
-        <option value="Light">Light</option>
-        <option value="Medium">Medium</option>
-        <option value="Dark">Dark</option>
+        <option value="" data-i18n="allRoasts">All Roasts</option>
+        <option value="Light" data-i18n="light">Light</option>
+        <option value="Medium" data-i18n="medium">Medium</option>
+        <option value="Dark" data-i18n="dark">Dark</option>
       </select>
     </div>
   </aside>
@@ -64,15 +64,15 @@
     <!-- No products message -->
     <div id="no-products" class="no-products-wrap" style="display:none;">
       <div class="no-products-icon">&#9749;</div>
-      <h2>NO PRODUCTS WERE FOUND</h2>
-      <p>Check your spelling or search again with less specific terms.</p>
-      <button class="btn-return-shop" id="return-shop-btn">RETURN TO SHOP</button>
+      <h2 data-i18n="noProductsTitle">NO PRODUCTS WERE FOUND</h2>
+      <p data-i18n="noProductsMsg">Check your spelling or search again with less specific terms.</p>
+      <button class="btn-return-shop" id="return-shop-btn" data-i18n="returnToShop">RETURN TO SHOP</button>
     </div>
   </div>
 </div>
 
 <div class="checkout-bar">
-  <a href="/checkout" id="checkout-btn">Proceed to Checkout &rarr;</a>
+  <a href="/checkout" id="checkout-btn" data-i18n="proceedCheckout">Proceed to Checkout</a>
 </div>
 
 <footer>
@@ -91,6 +91,7 @@
     <p>&copy; 2026 <strong>Mr. Beans Coffee</strong> &mdash; All rights reserved.</p>
   </div>
 </footer>
+<script src="/js/i18n.js"></script>
 <script src="/js/auth.js"></script>
 <script src="/js/cart.js"></script>
 <script src="/js/shop.js"></script>

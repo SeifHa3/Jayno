@@ -1,4 +1,7 @@
 let allProducts = [];
+let filteredProducts = [];
+let currentPage = 1;
+const PRODUCTS_PER_PAGE = 6;
 let activeFilters = {
   brewingTechnique: '',
   roastColor: ''
@@ -32,8 +35,51 @@ function applyFilters() {
     }
   }
 
-  renderProducts(filtered);
+  filteredProducts = filtered;
+  currentPage = 1;
+  renderPage();
   renderFilterChips();
+}
+
+function renderPage() {
+  const start = (currentPage - 1) * PRODUCTS_PER_PAGE;
+  const pageItems = filteredProducts.slice(start, start + PRODUCTS_PER_PAGE);
+  renderProducts(pageItems);
+  renderPagination();
+}
+
+function renderPagination() {
+  let pagContainer = document.getElementById('pagination');
+  if (!pagContainer) {
+    pagContainer = document.createElement('div');
+    pagContainer.id = 'pagination';
+    pagContainer.className = 'pagination';
+    document.getElementById('products').after(pagContainer);
+  }
+
+  const totalPages = Math.ceil(filteredProducts.length / PRODUCTS_PER_PAGE);
+  if (totalPages <= 1) {
+    pagContainer.innerHTML = '';
+    return;
+  }
+
+  let html = `<button class="pag-btn" ${currentPage === 1 ? 'disabled' : ''} data-page="${currentPage - 1}">&laquo; Prev</button>`;
+  for (let i = 1; i <= totalPages; i++) {
+    html += `<button class="pag-btn ${i === currentPage ? 'active' : ''}" data-page="${i}">${i}</button>`;
+  }
+  html += `<button class="pag-btn" ${currentPage === totalPages ? 'disabled' : ''} data-page="${currentPage + 1}">Next &raquo;</button>`;
+  pagContainer.innerHTML = html;
+
+  pagContainer.querySelectorAll('.pag-btn').forEach(btn => {
+    btn.onclick = function() {
+      const page = parseInt(this.getAttribute('data-page'));
+      if (page && page >= 1 && page <= totalPages) {
+        currentPage = page;
+        renderPage();
+        window.scrollTo({ top: 200, behavior: 'smooth' });
+      }
+    };
+  });
 }
 
 function renderProducts(products) {
