@@ -124,7 +124,7 @@ async function loadFeaturedProducts(container) {
         </div>
         <h3>${product.name}</h3>
         <p>${product.description}</p>
-        <span class="price">${product.price} EGP</span>
+        <span class="price" data-price-egp="${product.price}">${product.price} EGP</span>
         <button class="btn-outline">Shop now &rarr;</button>
       </div>
     `).join('');
@@ -134,6 +134,8 @@ async function loadFeaturedProducts(container) {
         window.location.href = '/shop';
       };
     });
+
+    if (window.updateAllPrices) window.updateAllPrices();
   } catch (error) {
     container.innerHTML = '<p>Could not load featured products.</p>';
   }

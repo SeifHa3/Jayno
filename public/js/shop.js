@@ -104,8 +104,8 @@ function renderProducts(products) {
         <h3>${product.name}</h3>
         <p>${product.description}</p>
         <div class="product-footer">
-          <span class="price">${product.price} EGP</span>
-          <button class="btn-add" data-name="${product.name}" data-price="${product.price}">Add to Cart</button>
+          <span class="price" data-price-egp="${product.price}">${product.price} EGP</span>
+          <button class="btn-add" data-name="${product.name}" data-price="${product.price}" data-i18n="addToCart">Add to Cart</button>
         </div>
       </div>
     </div>
@@ -119,6 +119,9 @@ function renderProducts(products) {
       showToast('Added to cart!');
     };
   });
+
+  if (window.updateAllPrices) window.updateAllPrices();
+  if (typeof applyTranslations === 'function') applyTranslations();
 }
 
 function renderFilterChips() {
